@@ -1,2 +1,15 @@
-*.env 
-\venv 
+# Environments and Secrets
+.env
+venv/
+env/
+*.env
+*.env*.local
+
+# Python Cache Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database Files (Just in case you ever use SQLite)
+db.sqlite3
