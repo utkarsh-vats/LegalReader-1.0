@@ -1,5 +1,13 @@
 # LegalReader-1.0
 
+## Table of Content
+- [LegalReader-1.0](#legalreader-10)
+	- [Table of Content](#table-of-content)
+	- [🗄️ Database Architecture (Core Models)](#️-database-architecture-core-models)
+		- [1. `TrackedCase`](#1-trackedcase)
+		- [2. `CaseHearing`](#2-casehearing)
+
+
 ## 🗄️ Database Architecture (Core Models)
 
 LegalReader uses a relational database (PostgreSQL) to manage users, track cases, and store highly variable court data. Below is the core entity-relationship structure:

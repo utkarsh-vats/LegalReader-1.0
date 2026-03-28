@@ -69,6 +69,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 DATABASE_URL = os.environ.get('DATABASE_URL')
+
 if not DATABASE_URL:
     raise ValueError('CRITICAL ERROR: DATABASE_URL environment variable not set')
 
@@ -103,6 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
