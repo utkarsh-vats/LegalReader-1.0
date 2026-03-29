@@ -14,3 +14,6 @@ __pycache__/
 
 # Database Files (Just in case you ever use SQLite)
 db.sqlite3
+
+# Misc
+instructions.md
