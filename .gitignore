@@ -11,9 +11,21 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.py[cod]
+*$py.class
 
 # Database Files (Just in case you ever use SQLite)
 db.sqlite3
 
 # Misc
 instructions.md
+
+# Environments
+.env
+venv/
+env/
+
+
+
+# Static files
+staticfiles/

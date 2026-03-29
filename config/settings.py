@@ -20,8 +20,11 @@ DEBUG = os.environ.get('DEBUG', False)
 # GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '#')
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = []
+ENV_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost')
+ALLOWED_HOSTS = [host.strip() for host in ENV_HOSTS.split(',')]
 
+ENV_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000')
+CORS_ALLOWED_ORIGINS = [origin.strip() for origin in ENV_ORIGINS.split(',')]
 
 # Application definition
 INSTALLED_APPS = [
@@ -35,12 +38,14 @@ INSTALLED_APPS = [
 
     # THIRD PARTY APPS
     'rest_framework',
+    'corsheaders',
 
     # LOCAL APPS
     'cases',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
