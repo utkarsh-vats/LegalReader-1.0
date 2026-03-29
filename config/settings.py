@@ -104,6 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# eCourts API URL
+ECOURTS_API_URL = os.environ.get('ECOURTS_API_URL', 'https://services.ecourts.gov.in/ecourtindiaapi/')
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
