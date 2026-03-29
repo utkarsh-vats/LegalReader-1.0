@@ -21,6 +21,10 @@ class TrackedCase(models.Model):
 
     def __str__(self):
         return f"{self.cnr_number} - {self.petitioner} vs. {self.respondent}"
+    
+    # def __getattr__(self, name):
+    #     return getattr(self.raw_data, name)
+
 
 class CaseHearing(models.Model):
     tracked_case = models.ForeignKey(TrackedCase, on_delete=models.CASCADE, related_name='hearings')
