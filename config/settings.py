@@ -26,6 +26,11 @@ ALLOWED_HOSTS = [host.strip() for host in ENV_HOSTS.split(',')]
 ENV_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000')
 CORS_ALLOWED_ORIGINS = [origin.strip() for origin in ENV_ORIGINS.split(',')]
 
+AUTH_USER_MODEL = 'users.CustomUser'
+AUTHENTICATION_BACKENDS = [
+    'users.backends.EmailOrPhoneBackend'
+]
+
 # Application definition
 INSTALLED_APPS = [
     # DJANGO APPS
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
 
     # LOCAL APPS
     'cases',
+    'users',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,27 @@
+import uuid
+from django.contrib.auth.models import BaseUserManager
+
+class CustomUserManager(BaseUserManager):
+    def create_user(self, email=None, phone_number=None, password=None, **extra_fields):
+        if not email and not phone_number:
+            raise ValueError('Users must provide either an email or a phone number.')
+
+        login_id = extra_fields.pop('login_id', uuid.uuid4())
+
+        if email:
+            email = self.normalize_email(email)
+
+        user = self.model(login_id=login_id, email=email, phone_number=phone_number, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email=None, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        if not email:
+            raise ValueError('Superuser must provide an email.')
+        
+        return self.create_user(email=email, password=password, **extra_fields)
+
+

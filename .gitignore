@@ -20,12 +20,5 @@ db.sqlite3
 # Misc
 instructions.md
 
-# Environments
-.env
-venv/
-env/
-
-
-
 # Static files
 staticfiles/

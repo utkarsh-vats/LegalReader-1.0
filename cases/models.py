@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class TrackedCase(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cases')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='cases')
     cnr_number = models.CharField(max_length=16, db_index=True)
     court_state = models.CharField(max_length=100)
     court_district = models.CharField(max_length=100)
